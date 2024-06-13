@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="../styles/styles.css">
+    <!-- <link href='https://unpkg.com/css.gg@2.0.0/icons/css/dark-mode.css' rel='stylesheet'> -->
+    <link href='https://unpkg.com/css.gg@2.0.0/icons/css/eye-alt.css' rel='stylesheet'>
+    <link href='https://unpkg.com/css.gg@2.0.0/icons/css/eye.css' rel='stylesheet'>
+</head>
+
+<body>
+    <header>
+        <div id="logo_field">
+            <img class="img_zone"
+                src="https://zone01rouennormandie.org/wp-content/uploads/2024/02/ZONE01-ROUEN-NORMANDIE-HORIZON-FOND-NOIR-BONNE-TAILLE.png"
+                alt="Logo horizontal Zone01">
+        </div>
+        <div id="data_field">
+            <div id="title_page">
+                <h1>LOGIN</h1>
+            </div>
+            <div>
+                <h2>test</h2>
+            </div>
+        </div>
+        <!-- <div id="switch_theme_field">
+            <i class="gg-dark-mode"></i>
+        </div> -->
+    </header>
+    <main>
+        <form id="submit_field">
+            <div>
+                <div>
+                    <label for="username_field" class="login_title_field">USERNAME</label>
+                </div>
+                <div>
+                    <input class="login_input_field" id="username_field" required autocomplete="username">
+                </div>
+            </div>
+            <div>
+                <div>
+                    <label for="password_field" class="login_title_field">PASSWORD</label>
+                </div>
+                <div id="password_visibility">
+                    <div>
+                        <input class="login_input_field" type="password" id="password_field" required
+                            autocomplete="new-password">
+                    </div>
+                    <div>
+                        <i class="gg-eye" id="password_visibility_field"></i>
+                    </div>
+                </div>
+            </div>
+            <div id="submit_login_component">
+                <button id="submit_data" type="submit">Login</button>
+            </div>
+        </form>
+    </main>
+</body>
+<script type="module" src="../js/index.js"></script>
+<!-- <script type="module" src="../js/styles.js"></script>
+<script type="module" src="../js/api.js"></script> -->
+
+</html>
