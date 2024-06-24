@@ -7,7 +7,7 @@ function loginPageLoaded() {
     console.log("The dom is ready");
 
     FrontStyles.managePasswordElement();
-
+    
     const formSubmit = document.getElementById("submit_field");
     if (formSubmit) {
         formSubmit.addEventListener("submit", async function (event) {
@@ -17,10 +17,14 @@ function loginPageLoaded() {
                 document.getElementById("username_field").value,
                 document.getElementById("password_field").value
             );
-            
-            const datas = await Api.getDatasMember(token);
-            FrontStyles.showStatsPage(datas);
-        })
+            const datas = await Api.getData(token);
+            datas.birthdate = await Api.getUserBirthdate(token);
+            datas.userCreationDate = await Api.getUserCreation(token);
+
+            datas.maxProjectDone = await Api.getProjectDone(token);
+            const xps = Api.getXps(datas.transaction);
+            FrontStyles.showStatsPage(datas, xps);
+        });
     } else {
         console.error("Formsubmit is undefined");
     }
