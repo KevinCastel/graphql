@@ -209,13 +209,13 @@ form div {
 }
 
 .button_unlogged{
-    display: flex;
     width: 100px;
     height: 25px;
     justify-content: center;
     align-items: center;
-
+    display: none;
 }
+
 
 /* #switch_theme_field {
     margin-right: 4%;

@@ -102,7 +102,7 @@ export async function getData(token = String) {
             "totalUp": datas.data.user[0].totalUp,
             "totalDown": datas.data.user[0].totalDown,
             "transaction": datas.data.transaction,
-            "auditRatio": Math.ceil(datas.data.user[0].auditRatio),
+            "auditRatio": (datas.data.user[0].auditRatio).toFixed(2),
             "campusLocation": datas.data.user[0].campus
         };
     } catch (error) {

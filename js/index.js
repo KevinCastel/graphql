@@ -34,6 +34,10 @@ function loginPageLoaded() {
                 return null;
             }
 
+            const buttonUnlog = document.getElementById('button_unlogged');
+            buttonUnlog.style.display = 'block';
+        
+
             const datas = await Api.getData(token);
             datas.birthdate = await Api.getUserBirthdate(token);
             datas.userCreationDate = await Api.getUserCreation(token);
@@ -62,6 +66,8 @@ function logout() {
     const mainElement = document.querySelector("main");
     mainElement.innerHTML = mainInnerText;
 
+    const buttonUnlog = document.getElementById('button_unlogged');
+    buttonUnlog.style.display = 'none';
 }
 // function hideInterfaceWrongIdentify(interfaceIdentifyLogin, main){
 //     console.log("test!!!");
