@@ -215,8 +215,7 @@ export function createLegendProgressBar(divLegends) {
 
     DrawColorLegendContainer("white", secondDivColor);
     DrawColorMeaning(divColorsRules, secondDivColor, "Represent the lowest value received as audit ratio");
-
-
+    
     const subTitleContainer = document.createElement("div");
     subTitleContainer.style.width = "100%";
     subTitleContainer.style.height = "100%";
@@ -230,11 +229,9 @@ export function createLegendProgressBar(divLegends) {
     subTitle.style.width = "auto";
     subTitle.style.height = "auto";
     subTitle.style.textAlign = "center";
-    
 
     subTitleContainer.appendChild(subTitle);
     divColorsRules.appendChild(subTitleContainer);
-
 
     // const divSecondColorRule = document.createElement("div");
     // divSecondColorRule.style.width = "100%";

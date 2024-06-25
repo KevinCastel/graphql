@@ -4,8 +4,34 @@ const urlS = "https://zone01normandie.org/api/auth/signin"
 const urlD = "https://zone01normandie.org/api/graphql-engine/v1/graphql"
 
 //get token
-export async function getToken(username = String, password = String) {
-    console.log("Try to cnt");
+// export async function getToken(username = String, password = String) {
+//     console.log("Try to cnt");
+//     let errorLevel = 0;
+//     try {
+//         const response = await fetch(urlS, {
+//             method: "post",
+//             headers: {
+//                 "Authorization": `Basic ${btoa(username + ":" + password)}`,
+//                 "Content-Type": "application/json"
+//             }
+//         });
+//         const data = await response.json();
+//         return data;
+//     } catch (error) {
+//         console.log("here");
+//         return null
+//         // errorLevel = -1;
+//         // console.log("An error has occurred for logging :", username, " password:", password);
+//         // console.log("returning null value");
+//         // return null;
+//     // } finally {
+//         // console.log("error Level :", errorLevel);
+//     }
+// }
+
+
+export async function getToken(username, password) {
+    console.log("Tentative de connexion");
     try {
         const response = await fetch(urlS, {
             method: "post",
@@ -15,10 +41,14 @@ export async function getToken(username = String, password = String) {
             }
         });
         const data = await response.json();
-        return data;
+        if (response.ok) {
+            return { success: true, token: data };
+        } else {
+            return { success: false, error: data.error || "Erreur lors de l'authentification" };
+        }
     } catch (error) {
-        console.error("An error has occurred for logging :", username, " password:", password);
-        throw error;
+        console.log("Une erreur est survenue :", error);
+        return { success: false, error: "Problème de connexion au service" };
     }
 }
 
