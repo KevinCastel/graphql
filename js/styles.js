@@ -307,4 +307,3 @@ export function setPasswordVisibility(buttonPasswordVisibility) {
             break;
     }
 }
-

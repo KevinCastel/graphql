@@ -1,11 +1,14 @@
 import * as FrontStyles from "./styles.js";
 import * as Api from "./api.js";
 
+
+let mainInnerText = "";
+
 function loginPageLoaded() {
     console.log("The dom is ready");
 
     FrontStyles.managePasswordElement();
-    
+
     const formSubmit = document.getElementById("submit_field");
     const usernameField = document.getElementById("username_field");
     const passwordField = document.getElementById("password_field");
@@ -19,8 +22,9 @@ function loginPageLoaded() {
             );
             console.log("result :", result);
             let token = String;
-            if (result.success){
-                token = result.token;                
+            mainInnerText = document.querySelector("main").innerHTML;
+            if (result.success) {
+                token = result.token;
             } else {
                 usernameField.value = "";
                 passwordField.value = "";
@@ -37,13 +41,15 @@ function loginPageLoaded() {
             datas.maxProjectDone = await Api.getProjectDone(token);
             const xps = Api.getXps(datas.transaction);
             FrontStyles.showStatsPage(datas, xps);
+
+            document.getElementById("button_unlogged").addEventListener("click", logout)
         });
     } else {
         console.error("Formsubmit is undefined");
     }
 
     if (window.location.hostname == "127.0.0.1") {
-        document.getElementById("username_field").value = "kcastsel";
+        document.getElementById("username_field").value = "kcastel";
         document.getElementById("password_field").value = "@Kevastele1";
         document.getElementById("submit_data").click();
         console.log("Click automatized");
@@ -52,7 +58,11 @@ function loginPageLoaded() {
     }
 }
 
+function logout() {
+    const mainElement = document.querySelector("main");
+    mainElement.innerHTML = mainInnerText;
 
+}
 // function hideInterfaceWrongIdentify(interfaceIdentifyLogin, main){
 //     console.log("test!!!");
 //     main.removeChild(interfaceIdentifyLogin);
@@ -69,7 +79,7 @@ function loginPageLoaded() {
 //     interfaceIdentifiyLogin.style.position = "absolute";
 //     interfaceIdentifiyLogin.style.display = "flex";
 //     interfaceIdentifiyLogin.style.flexDirection = "column";
-    
+
 //     const main = document.querySelector("main");
 //     main.appendChild(interfaceIdentifiyLogin);
 
