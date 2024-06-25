@@ -150,6 +150,12 @@ form div {
      visibility: hidden; 
 } */
 
+.unlog {
+    z-index: 10000;
+    border: 1px solid black;
+    position: absolute;
+}
+
 #data_field {
     height: 100%;
     width: 100%;
@@ -200,6 +206,15 @@ form div {
 #grid-flex{
     background-color: rgba(10, 10, 10, 0.8);
     opacity: 100%;
+}
+
+.button_unlogged{
+    display: flex;
+    width: 100px;
+    height: 25px;
+    justify-content: center;
+    align-items: center;
+
 }
 
 /* #switch_theme_field {
